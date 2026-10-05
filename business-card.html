@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAMARA — санариптик визитка</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="cardpage">
+<div class="bg" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<main class="cardwrap">
+  <!-- 3D FLIP ВИЗИТКА -->
+  <div class="scene" id="scene" tabindex="0" role="button" aria-label="Визитканы буруу">
+    <div class="flip" id="flip">
+      <section class="face front">
+        <figure class="avatar"><div class="ph">S</div><img src="images/profile.jpg" alt="Самара" onerror="this.remove()"></figure>
+        <h1>SAMARA</h1>
+        <p class="lead">IT үйрөнүп жатам</p>
+        <p class="tech">HTML • CSS • JavaScript</p>
+        <div class="contacts" id="contactBtns"></div>
+      </section>
+      <section class="face back">
+        <h2>QR-КОД</h2>
+        <div class="qr"><img src="images/qr.png" alt="QR-код" onerror="this.parentNode.innerHTML='<p>QR-кодду <b>images/qr.png</b> деп салыңыз</p>'"></div>
+        <p class="muted">Сканерлеп, визиткамды ачыңыз</p>
+      </section>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn gold" id="saveBtn">＋ БАЙЛАНЫШКА САКТОО</button>
+    <button class="btn" id="shareBtn">↗ БӨЛҮШҮҮ</button>
+    <button class="btn" id="qrBtn">QR-КОД</button>
+    <a class="btn" href="index.html">← ПОРТФОЛИОГО КАЙТУУ</a>
+  </div>
+  <p class="toast" id="toast" role="status"></p>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
