@@ -29,8 +29,8 @@ const PROJECTS = [
   ['Sapat Plast', 'Терезе жана эшик чыгарган компания үчүн сайт.', '#', '#']
 ];
 const PATH = [['2006', 'Мектеп'], ['ОшМУ', 'Финансы-экономикалык билим'], ['ОшМУ', 'Салык жана салык салуу'],
-  ['', 'Банк жана финансы тармагындагы тажрыйба'], ['', 'Микрокредиттик агенттик'], ['', 'Айыл өкмөтү'],
-  ['', 'Диний жана билим берүү багыты'], ['2026', 'IT жана араб тили']];
+['', 'Банк жана финансы тармагындагы тажрыйба'], ['', 'Микрокредиттик агенттик'], ['', 'Айыл өкмөтү'],
+['', 'Диний жана билим берүү багыты'], ['2026', 'IT жана араб тили']];
 
 const $ = s => document.querySelector(s);
 
@@ -49,7 +49,7 @@ if ($('#about-cards')) {
     <div><b>0${i + 1}</b><h3>${p[0]}</h3><p class="muted">${p[1]}</p></div>
     <div class="row"><a class="btn" href="${p[2]}">Көрүү →</a><a class="btn" href="${p[3]}">GitHub →</a></div></article>`).join('');
   $('#path-list').innerHTML = PATH.map((p, i) => `<li class="reveal" style="transition-delay:${i * .07}s">${p[0] ? `<b>${p[0]}</b> — ` : ''}${p[1]}</li>`).join('');
-  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), {threshold: .15});
+  const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && (e.target.classList.add('in'), io.unobserve(e.target))), { threshold: .15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 }
 
@@ -65,12 +65,12 @@ if ($('#contactBtns')) {
   $('#saveBtn').onclick = () => {
     const v = `BEGIN:VCARD\nVERSION:3.0\nFN:Самара\nORG:SAMARA\nTITLE:IT үйрөнүп жатам\nTEL;TYPE=CELL:+996772646121\nEMAIL:${CONTACT.email.replace('mailto:', '')}\nURL:${CONTACT.github}\nEND:VCARD`;
     const a = document.createElement('a');
-    a.href = URL.createObjectURL(new Blob([v], {type: 'text/vcard'})); a.download = 'samara.vcf'; a.click();
+    a.href = URL.createObjectURL(new Blob([v], { type: 'text/vcard' })); a.download = 'samara.vcf'; a.click();
     toast('Контакт файлы жүктөлдү');
   };
   // Бөлүшүү: телефондо меню ачылат, компьютерде шилтеме көчүрүлөт
   $('#shareBtn').onclick = async () => {
-    const data = {title: 'SAMARA — визитка', url: location.href};
+    const data = { title: 'SAMARA — визитка', url: location.href };
     try { if (navigator.share) { await navigator.share(data); } else { await navigator.clipboard.writeText(location.href); toast('Шилтеме көчүрүлдү'); } }
     catch (e) { toast('Шилтемени кол менен көчүрүңүз'); }
   };
